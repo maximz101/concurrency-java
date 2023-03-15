@@ -10,6 +10,9 @@
       <option name="ignoreTransformationOfOriginalParameter" value="false" />
     </inspection_tool>
     <inspection_tool class="AssignmentToNull" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AutoCloseableResource" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="METHOD_MATCHER_CONFIG" value="java.util.Formatter,format,java.io.Writer,append,com.google.common.base.Preconditions,checkNotNull,org.hibernate.Session,close,java.io.PrintWriter,printf,java.io.PrintStream,printf,java.util.concurrent.Executors,newVirtualThreadPerTaskExecutor" />
+    </inspection_tool>
     <inspection_tool class="BlockMarkerComments" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="BooleanParameter" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="onlyReportMultiple" value="true" />
@@ -179,7 +182,6 @@
       <option name="m_ignoreWeakCollections" value="true" />
     </inspection_tool>
     <inspection_tool class="StringConcatenationInLoops" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
-    <inspection_tool class="SwitchStatementWithConfusingDeclaration" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="TooBroadCatch" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="TooBroadScope" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_allowConstructorAsInitializer" value="true" />

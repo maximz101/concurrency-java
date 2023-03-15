@@ -1,48 +1,42 @@
 package com.novencia.jconcurrency.misc;
 
-import java.util.Scanner;
-
-/**
- * @author max
- */
-public class C_FieldVisibility {
-    // how can I make it visible to the reader thread?
-    private static boolean flag = true;
-
+public class F_PingPongThreads {
     public static void main(String[] args) throws InterruptedException {
-        // writer thread
+        var obj = new Object();
+
         var t1 = new Thread(() -> {
             while (true) {
-                flag = !flag;
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                }
-            }
-        });
-
-        //reader thread
-        var t2 = new Thread(() -> {
-            while (true) {
-                if (flag) {
-                    System.out.println("reader thread : flag=" + flag);
+                synchronized (obj) {
+                    System.out.println("ping");
                     try {
                         Thread.sleep(1000);
+                        obj.wait();
+                        obj.notifyAll();
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
                 }
             }
         });
-
+        var t2 = new Thread(() -> {
+            while (true) {
+                synchronized (obj) {
+                    System.out.println("pong");
+                    try {
+                        Thread.sleep(1000);
+                        obj.notifyAll();
+                        obj.wait();
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                }
+            }
+        });
         t1.start();
         t2.start();
 
         t1.join();
         t2.join();
 
-        new Scanner(System.in).nextLine();
     }
-
 }
