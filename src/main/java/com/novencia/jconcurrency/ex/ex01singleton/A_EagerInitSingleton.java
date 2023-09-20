@@ -1,4 +1,4 @@
-package com.novencia.jconcurrency.ch01.singleton;
+package com.novencia.jconcurrency.ex.ex01singleton;
 
 public class A_EagerInitSingleton {
     static A_EagerInitSingleton instance = new A_EagerInitSingleton();

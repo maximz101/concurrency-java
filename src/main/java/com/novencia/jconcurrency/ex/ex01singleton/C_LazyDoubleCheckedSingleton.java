@@ -1,4 +1,4 @@
-package com.novencia.jconcurrency.ch01.singleton;
+package com.novencia.jconcurrency.ex.ex01singleton;
 
 public class C_LazyDoubleCheckedSingleton {
     static C_LazyDoubleCheckedSingleton instance;

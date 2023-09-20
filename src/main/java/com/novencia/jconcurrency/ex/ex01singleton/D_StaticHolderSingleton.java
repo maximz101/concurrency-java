@@ -1,4 +1,4 @@
-package com.novencia.jconcurrency.ch01.singleton;
+package com.novencia.jconcurrency.ex.ex01singleton;
 
 public class D_StaticHolderSingleton {
     private D_StaticHolderSingleton() {
